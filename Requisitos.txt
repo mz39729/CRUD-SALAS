@@ -1,0 +1,47 @@
+    Desarrollo de Aplicación Web
+
+Se requiere el desarrollo de un aplicativo para el manejo de las salas de computo de la institución educativa, para esto se deben crear 
+los siguientes componentes:
+
+    •	Administradores: debe existir un administrador precargado en la base de datos para realzar el primer ingreso.
+    
+        o	Crear administrador con los siguientes campos:
+            	Nombre: nombre.
+            	Username: de be ser único.
+            	Password:  debe estar codificado usando elalgoritmo MD5
+            	Correo: con la convención de cualquier correo.
+        o	Listar administradores.
+        o	Login del sistema.
+
+    •	Sede: esta describe la edificación donde residen las salas de computo y deben registrarse los siguientes datos.
+
+        o	Nombre de la sede: este campo es alfa-numérico y no puede pasar de mas de 30 caracteres.
+        o	Código de la sede: código alfa-numérico de no más de 10 caracteres. Este campo no puede ser igual para dos registros.
+        o	Dirección de la sede: dirección alfa-numérica sin símbolos, preferiblemente con las siguiente convención: carrera será remplazada por C, 
+            calle por K no se incluirá el numeral y los números que tengan literales les será incluida la letra en mayúsculas. Ejemplo:
+            	C 79B 42E 211
+            	K 38 34A 45
+        o	Número de teléfono: número telefónico valido.
+        o	Cantidad de salas: número de salas de computadores que tiene. En caso de aumentar el número no se debe realizar ninguna validación, 
+            pero en caso contrario no se puede disminuir a un numero menor a las salas que se encuentren creadas. De ser necesario lo anterior debe 
+            eliminarse las salas necesarias.
+        o	Lista de salas creadas: todas las salas asociadas a una sede.
+
+    •	Sala: esa describe la sala que pertenece a una Sede y que debe tener computadores asignados.
+
+        o	Código de sala: es el identificador de la sala, no puede repetirse el código de sala en la misma sede.
+        o	Sede: sede a la que compone. 	No puedo agregar una sala a una sede que tenga relacionadas el número máximo de salas.
+        o	Cantidad de computadores: número de computadores máximo que puede tener esta sala. Se puede aumentar sin tener que realizar ninguna 
+            validación, pero encaso de disminuir, no se puede hacer a un número menor de los computadores registrados. De ser necesario se deberán 
+            desasignar los computadores que se requieran.
+        o	Lista de computadores: lista de computadores asociados a la sala.
+        o	La sala no puede existir sin una sede y para poder eliminar una sala, esta no puede tener computadores asociados.
+
+    •	Computadores: esta describe los equipos de cómputo que funcionan.
+
+        o	Código de computador:
+        o	Sede: Código de una sede existente. 
+        o	Sala: Código de una sala existente, no puedo agregar un pc a una sala que ya tenga relacionado el número máximo de PC`s.
+        o	Un computador puede existir sin estar relacionado a una sala o Sede.
+
+    •	Se debe realizar el CRUD de todas estas entidades implementando almacenamiento en base de datos.
